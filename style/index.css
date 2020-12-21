@@ -163,6 +163,16 @@
   background-color: #565656;
 }
 
+[data-jp-theme-light='true'] .vertical-divider {
+  border-left: 2px solid var(--jp-layout-color2);
+  height: 80%;
+}
+
+[data-jp-theme-light='false'] .vertical-divider {
+  border-left: 2px solid #565656;
+  height: 80%;
+}
+
 .toc-code-cell-prompt {
   flex: 0 0 27px;
   color: var(--jp-cell-prompt-not-active-font-color);
