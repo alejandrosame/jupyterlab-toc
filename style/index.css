@@ -109,6 +109,19 @@
   border-radius: 2px;
 }
 
+.toc-tab-icons-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+}
+
+.toc-tab-icons-wrapper .toc-toolbar-icon,
+.toc-tab-icons-wrapper .toc-toolbar-icon-selected {
+  margin-top: 7px;
+  margin-bottom: 0px;
+}
+
 [data-jp-theme-light='true'] .toc-toolbar-code-icon {
   background-image: url('img/code.svg');
 }
@@ -163,13 +176,13 @@
   background-color: #565656;
 }
 
-[data-jp-theme-light='true'] .vertical-divider {
-  border-left: 2px solid var(--jp-layout-color2);
+[data-jp-theme-light='true'] .toc-vertical-divider {
+  border-left: var(--jp-border-width) solid var(--jp-border-color2);
   height: 80%;
 }
 
-[data-jp-theme-light='false'] .vertical-divider {
-  border-left: 2px solid #565656;
+[data-jp-theme-light='false'] .toc-vertical-divider {
+  border-left: var(--jp-border-width) solid #565656;
   height: 80%;
 }
 

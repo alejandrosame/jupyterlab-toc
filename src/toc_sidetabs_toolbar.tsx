@@ -73,12 +73,18 @@ class TOCSidetabsToolbar extends React.Component<IProperties, IState> {
       </div>
     );
 
+    let numberDivs = 6;
+    let divs = [];
+    for (var i = 0; i < numberDivs; i++) {
+      divs.push(tocIcon);
+    }
+
     return (
       <div>
         <div className={'toc-toolbar'}>
           {tocIcon}
-          <div className="vertical-divider" />
-          <span>No tabs to display</span>
+          <div className="toc-vertical-divider" />
+          <div className="toc-tab-icons-wrapper">{divs}</div>
         </div>
       </div>
     );
