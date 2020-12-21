@@ -6,6 +6,7 @@ import { Widget } from '@lumino/widgets';
 import { IHeading } from './utils/headings';
 import { TableOfContentsRegistry as Registry } from './registry';
 import { TOCItem } from './toc_item';
+import { TOCSidetabsToolbar } from './toc_sidetabs_toolbar';
 
 /**
  * Interface describing component properties.
@@ -47,7 +48,17 @@ interface IProperties extends React.Props<TOCTree> {
  *
  * @private
  */
-interface IState {}
+interface IState {
+  /**
+   * Boolean indicating whether to show the table of contents.
+   */
+  showToc: boolean;
+
+  /**
+   * Integer indicating which tab to display.
+   */
+  showSidetab: number;
+}
 
 /**
  * React component for a table of contents tree.
@@ -55,6 +66,28 @@ interface IState {}
  * @private
  */
 class TOCTree extends React.Component<IProperties, IState> {
+  constructor(props: IProperties) {
+    super(props);
+    this.state = {
+      showToc: true,
+      showSidetab: 0
+    };
+  }
+
+  /**
+   * Toggle whether to show the table of contents.
+   */
+  toggleToc = () => {
+    this.setState({ showToc: !this.state.showToc });
+  };
+
+  /**
+   * Toggle whether to show the table of contents.
+   */
+  toggleTab = () => (index: number) => {
+    this.setState({ showToc: false, showSidetab: index });
+  };
+
   /**
    * Renders a table of contents tree.
    */
@@ -75,8 +108,16 @@ class TOCTree extends React.Component<IProperties, IState> {
     return (
       <div className="jp-TableOfContents">
         <header>{this.props.title}</header>
-        {Toolbar && <Toolbar />}
-        <ul className="jp-TableOfContents-content">{list}</ul>
+        <TOCSidetabsToolbar
+          showToc={this.state.showToc}
+          toggleToc={this.toggleToc}
+          showSidetab={this.state.showSidetab}
+          toggleTab={this.toggleTab}
+        />
+        {this.state.showToc && Toolbar && <Toolbar />}
+        {this.state.showToc && (
+          <ul className="jp-TableOfContents-content">{list}</ul>
+        )}
       </div>
     );
   }
