@@ -113,12 +113,17 @@
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+  align-self: flex-start;
   overflow-x: scroll;
 }
 
-.toc-tab-icons-wrapper .toc-toolbar-icon,
-.toc-tab-icons-wrapper .toc-toolbar-icon-selected {
-  margin-top: 7px;
+.toc-toolbar-sidetabs-main-icon-button {
+  align-self: flex-start;
+}
+
+.toc-toolbar-sidetabs .toc-toolbar-icon,
+.toc-toolbar-sidetabs .toc-toolbar-icon-selected {
+  margin-top: 8px;
   margin-bottom: 0px;
 }
 
@@ -217,6 +222,11 @@
   height: 36px;
   display: flex;
   align-items: center;
+}
+
+.toc-toolbar-sidetabs {
+  align-self: flex-start;
+  height: 44px;
 }
 
 .toc-code-cell-div {

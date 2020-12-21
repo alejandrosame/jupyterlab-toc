@@ -61,7 +61,7 @@ class TOCSidetabsToolbar extends React.Component<IProperties, IState> {
       : ['jp-TableOfContents-icon', 'toc-toolbar-icon'];
     const tocIcon = (
       <div
-        className="toc-toolbar-button"
+        className="toc-toolbar-sidetabs-main-icon-button toc-toolbar-button"
         onClick={event => this.props.toggleToc()}
       >
         <div
@@ -81,7 +81,7 @@ class TOCSidetabsToolbar extends React.Component<IProperties, IState> {
 
     return (
       <div>
-        <div className={'toc-toolbar'}>
+        <div className={'toc-toolbar toc-toolbar-sidetabs'}>
           {tocIcon}
           <div className="toc-vertical-divider" />
           <div className="toc-tab-icons-wrapper">{divs}</div>
